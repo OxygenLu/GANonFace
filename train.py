@@ -9,8 +9,6 @@ import argparse
 import math
 import matplotlib.image as im
 from PIL import Image
-
-# import torchvision.transforms as transforms
 from torchvision.utils import save_image
 from torchvision import datasets, models, transforms
 from torch.autograd import Variable
@@ -18,6 +16,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.tensorboard import SummaryWriter
 import time
+
 
 os.makedirs("images", exist_ok=True)
 
@@ -43,6 +42,8 @@ img_shape = (opt.channels, opt.img_size, opt.img_size)
 tb_write = SummaryWriter(log_dir="../GAN-ON-FACE/run/face_exp2")
 if os.path.exists("../GAN-ON-FACE/weights") is False:
     os.makedirs("../GAN-ON-FACE/weights")
+
+    
 #--------------------datasets making ----------------------
 dataset = '../GAN/face'
 

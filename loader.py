@@ -6,7 +6,8 @@ import random
 from PIL import Image
 from torch.utils.data import Dataset
 
-# # 根目录
+# #根目录中如果有一个Celebrity Face Dataset文件夹，
+# #里面有多个类别的子文件。可以将子文件整理并重新命名
 # dir_path = "../GAN/Celebrity Faces Dataset"
 # face = "/GAN/face"
 # if not os.path.exists(face):
@@ -27,6 +28,7 @@ from torch.utils.data import Dataset
 #         image_name = file_list[iter]+'.'+item
 #         shutil.copy2(os.path.join(dir_path, file_list[iter], item), os.path.join(face, image_name))
 #         i = i+1
+
 
 
 # 读取文件夹图片
