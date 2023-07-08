@@ -6,27 +6,27 @@ import random
 from PIL import Image
 from torch.utils.data import Dataset
 
-# 根目录
-dir_path = "../GAN/Celebrity Faces Dataset"
-face = "/GAN/face"
-if not os.path.exists(face):
-    os.makedirs(face)
+# # 根目录
+# dir_path = "../GAN/Celebrity Faces Dataset"
+# face = "/GAN/face"
+# if not os.path.exists(face):
+#     os.makedirs(face)
 
 # 建立列表，用于保存图片信息
-file_list = []
+# file_list = []
 
-for file in os.listdir(dir_path):  # file为current_dir当前目录下图片名
-    filename = file
-    file_list.append(filename)  #
-print(len(file_list))
+# for file in os.listdir(dir_path):  # file为current_dir当前目录下图片名
+#     filename = file
+#     file_list.append(filename)  #
+# print(len(file_list))
 
-iter = 0
-i = 0
-for iter in range(0, len(file_list)):
-    for item in os.listdir(os.path.join(dir_path, file_list[iter]) ):
-        image_name = file_list[iter]+'.'+item
-        shutil.copy2(os.path.join(dir_path, file_list[iter], item), os.path.join(face, image_name))
-        i = i+1
+# iter = 0
+# i = 0
+# for iter in range(0, len(file_list)):
+#     for item in os.listdir(os.path.join(dir_path, file_list[iter]) ):
+#         image_name = file_list[iter]+'.'+item
+#         shutil.copy2(os.path.join(dir_path, file_list[iter], item), os.path.join(face, image_name))
+#         i = i+1
 
 
 # 读取文件夹图片
