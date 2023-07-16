@@ -58,12 +58,12 @@ trans = transforms.Compose([
     ])
 
 data = myDataset(data_dir=dataset,transform=trans)
-# print(data,type)
+
 dataloader = torch.utils.data.DataLoader(
     dataset=data,
     batch_size = opt.batch_size,
     shuffle = True,
-    # num_workers = 2
+
 )
 # print(dataloader)
 print("loader successd!")
