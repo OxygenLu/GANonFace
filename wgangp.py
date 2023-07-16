@@ -131,10 +131,6 @@ class Generator(nn.Module):
 #          y = self.generator(x.view(x.shape[0], x.shape[1], 1, 1))
 #          return y
 
-# def initialize_weights(model):
-#     for m in model.moudules():
-#         if isinstance(m, (nn.Conv2d, nn.ConvTranspose2d, nn.BatchNorm2d)):
-#             nn.init.normal_(m.weight.data, 0.0, 0.02)
 
 
 
