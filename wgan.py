@@ -43,13 +43,16 @@ img_shape = (opt.channels, opt.img_size, opt.img_size)
 tb_write = SummaryWriter(log_dir="../GAN-ON-FACE/run/face_exp3")
 if os.path.exists("../GAN-ON-FACE/weights") is False:
     os.makedirs("../GAN-ON-FACE/weights")
+
+
+    
 #--------------------datasets making ----------------------
 dataset = '../GAN-ON-FACE/face'
 
 trans = transforms.Compose([
         transforms.Resize([opt.img_size,opt.img_size]),
         transforms.ToTensor(),
-        transforms.Normalize([0.5],[0.5])
+        transforms.Normalize([0.5]*3,[0.5]*3)
     ])
 
 data = myDataset(data_dir=dataset,transform=trans)
@@ -115,7 +118,6 @@ class Discriminator(nn.Module):
 
         return validity
 
-print("www")
 
 # Initialize generator and discriminator
 generator = Generator()
@@ -182,11 +184,10 @@ for epoch in range(opt.n_epochs):
 
         # 此处需要注意，detach()是为了截断梯度流，不计算生成网络的损失，
         # 因为d_loss包含了fake_loss，回传的时候如果不做处理，默认会计算generator的梯度，
-        # 而这里只需要计算判别网络的梯度，更新其权重值，生成网络保持不变即可。ss
+        # 而这里只需要计算判别网络的梯度，更新其权重值，生成网络保持不变即可。
         # fake_loss = adversarial_loss(discriminator(gen_imgs.detach()), fake)
         fake_imgs = generator(z).detach()
         d_loss = -torch.mean(discriminator(real_imgs)) + torch.mean(discriminator(fake_imgs))
-        # loss = -torch.mean(discriminator(real_imgs)) + torch.mean(discriminator(fake_imgs))
 
         d_loss.backward()
         optimizer_D.step()
