@@ -38,17 +38,7 @@ tb_write = SummaryWriter(log_dir="../GAN-ON-FACE/run/conv_exp1")
 if os.path.exists("../GAN-ON-FACE/weights") is False:
     os.makedirs("../GAN-ON-FACE/weights")
 
-# dataroot='face'
-# dataset = datasets.ImageFolder(root=dataroot,
-#                            transform=transforms.Compose([
-#                                transforms.Resize(IMAGE_SIZE),
-#                                transforms.CenterCrop(IMAGE_SIZE),
-#                                transforms.ToTensor(),
-#                                transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
-#                            ]))
-# # Create the dataloader
-# dataloader = torch.utils.data.DataLoader(dataset, batch_size=BATCH_SIZE,
-#                                          shuffle=True, num_workers=2)
+
 #--------------------datasets making ----------------------
 dataset = '../GAN-ON-FACE/face'
 
